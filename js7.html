@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes moveTrain {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100vw); }
+        }
+        #train {
+            position: relative;
+            width: 100px;
+            animation: moveTrain 5s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <img id="train" src="./2.png" alt="Train">
+    <h1 style="color:blue">Click the following buttons for animation</h1>
+    <button onclick="startAnimation()">Start</button>
+    <button onclick="stopAnimation()">Stop</button>
+
+    <script>
+        let train = document.getElementById('train');
+        let animation;
+
+        function startAnimation() {
+            train.style.animationPlayState = 'running';
+        }
+
+        function stopAnimation() {
+            train.style.animationPlayState = 'paused';
+        }
+
+        // Initialize with animation paused
+        train.style.animationPlayState = 'paused';
+    </script>
+</body>
+</html>

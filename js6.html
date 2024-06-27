@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 350px;
+            background-color: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            color: #262626;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="password"], input[type="submit"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            font-size: 14px;
+            background-color: #fafafa;
+            outline: none;
+        }
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .forgot-password {
+            font-size: 12px;
+            color: #003569;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        .signup-link {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #003569;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Instagram</h2>
+        <form id="loginForm" onsubmit="return false;">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <div class="error-message" id="usernameError"></div>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <div class="error-message" id="passwordError"></div>
+
+            <p><input type="checkbox" id="rememberMe" name="rememberMe">Remember me</p>
+            
+
+            <input type="submit" value="Log In" onclick="validateForm()">
+        </form>
+
+        <div class="forgot-password">
+            <a href="#">Forgot password?</a>
+        </div>
+
+        <div class="signup-link">
+            Don't have an account? <a href="#">Sign up</a>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value.trim();
+            var password = document.getElementById('password').value.trim();
+            var usernameError = document.getElementById('usernameError');
+            var passwordError = document.getElementById('passwordError');
+
+            usernameError.innerText = '';
+            passwordError.innerText = '';
+
+            var isValid = true;
+
+            if (username === '') {
+                usernameError.innerText = 'Username is required';
+                isValid = false;
+            }
+
+            if (password === '') {
+                passwordError.innerText = 'Password is required';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>

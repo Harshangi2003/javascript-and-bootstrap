@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task-5</title>
+    <style>
+        .hello {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hi {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h1 style="color: blue; text-align: center;">Registration form</h1>
+        <table border="1" width="100%">
+            <tr>
+                <td>
+                    <h4>First Name</h4>
+                </td>
+                <td><input type="text" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Last Name</h4>
+                </td>
+                <td><input type="text" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Email</h4>
+                </td>
+                <td><input type="email" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Password</h4>
+                </td>
+                <td>
+                    <input type="password" id="password" />
+                    <p id="passwordMessage" style="color: red;"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Re-enter Password</h4>
+                </td>
+                <td><input type="password" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Gender</h4>
+                </td>
+                <td>
+                    <p><input type="radio" name="gender" />Male</p>
+                    <hr>
+                    <p><input type="radio" name="gender" />Female</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Age</h4>
+                </td>
+                <td><input type="number" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Phone Number</h4>
+                </td>
+                <td><input type="tel" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Address</h4>
+                </td>
+                <td><input type="text" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>State</h4>
+                </td>
+                <td><input type="text" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Country</h4>
+                </td>
+                <td>
+                    <select>
+                        <option>India</option>
+                        <option>Bali</option>
+                        <option>Pakistan</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Languages known</h4>
+                </td>
+                <td>
+                    <div class="hi">
+                        <label><input type="checkbox" />English</label>
+                        <label><input type="checkbox" />Kannada</label>
+                        <label><input type="checkbox" />Hindi</label>
+                        <label><input type="checkbox" />Telugu</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p><input type="checkbox" />Hereby I declare all given information is true</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p></p>
+                </td>
+                <td>
+                    <p>Log into <a href="#">Ethnus</a> website</p>
+                </td>
+            </tr>
+        </table>
+        <div class="hello">
+            <input type="button" value="Register" onclick="checkPasswordStrength()" />
+        </div>
+    </form>
+
+    <script>
+        function checkPasswordStrength() {
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('passwordMessage');
+
+            if (password.length < 8 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/[0-9]/.test(password) || !/[^A-Za-z0-9]/.test(password)) {
+                message.textContent = 'Poor password. It must be at least 8 characters long and include a mix of uppercase letters, lowercase letters, numbers, and special characters.';
+            } else {
+                message.textContent = '';
+                alert('Password is strong!');
+            }
+        }
+    </script>
+</body>
+
+</html>
